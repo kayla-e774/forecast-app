@@ -1,18 +1,7 @@
 import dayjs, { type Dayjs } from 'dayjs';
 import dotenv from 'dotenv';
-// import { json } from 'stream/consumers';
 dotenv.config();
 
-// TODO: Define an interface for the Coordinates object
-/*
-interface Coordinates {
-  name: string;
-  lat: number;
-  lon: number;
-  country: string;
-  state: string;
-}
-*/
 // TODO: Define a class for the Weather object
 class Weather {
   city: string;
@@ -89,7 +78,7 @@ class WeatherService {
   makeWeather = (weatherJson: any, index: number) => {
     const weather = new Weather(
       weatherJson.city.name,
-      weatherJson.list[index].dt_txt,
+      dayjs(weatherJson.list[index].dt * 1000).format('MM/DD/YYYY'),
       weatherJson.list[index].main.temp,
       weatherJson.list[index].wind.speed,
       weatherJson.list[index].main.humidity,
