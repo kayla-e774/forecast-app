@@ -6,5 +6,6 @@ import htmlRoutes from './htmlRoutes.js';
 
 router.use('/api', apiRoutes);
 router.use('/', htmlRoutes);
+router.use('*', htmlRoutes);
 
 export default router;
